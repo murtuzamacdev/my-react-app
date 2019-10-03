@@ -43,7 +43,7 @@ class Registration extends Component {
         .auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then((result)=>{
-            console.log(result)
+          setTimeout(()=>{this.props.history.push(`/dashboard`)},2000);
         })
         .catch(function(error) {
           // Handle Errors here.

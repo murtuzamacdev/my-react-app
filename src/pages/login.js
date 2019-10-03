@@ -37,19 +37,23 @@ class Login extends Component {
   }
 
   handleLogin(event) {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => {
-        this.props.history.push(`/dashboard`);
-      })
-      .catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        alert(errorMessage);
-        // ...
-      });
+    if (formValid(this.state)) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.state.email, this.state.password)
+        .then(() => {
+          setTimeout(()=>{this.props.history.push(`/dashboard`)},2000);
+        })
+        .catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          alert(errorMessage);
+          // ...
+        });
+    } else {
+      alert("Invalid data");
+    }
 
     // do some login logic here, and if successful:
     // console.log(this.props)
