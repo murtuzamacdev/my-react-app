@@ -2,6 +2,7 @@
   "name": "myapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://localhost:8080/react-app",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "firebase": "^7.0.0",
